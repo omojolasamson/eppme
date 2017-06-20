@@ -80,6 +80,7 @@ class RegisterController extends Controller
             'address' => $data['address'],
             'city' => $data['city'],
             'password' => bcrypt($data['password']),
+            'role_id' => '22',
         ]);
     }
 }
