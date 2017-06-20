@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->integer('gender')->nullable();
             $table->string('address')->nullable();
             $table->string('city')->nullable();
-            $table->integer('role_id')->nullable()->unsigned()->default(3);
+            $table->integer('role_id')->nullable()->unsigned()->default(22);
             $table->rememberToken();
             $table->timestamps();
         });
