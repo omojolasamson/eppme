@@ -266,7 +266,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
-                        <p>Copyright © Eepme</p>
+                        <p>Copyright © Eppme</p>
                         <hr>
                         <ul class="social-icon">
                             <li><a href="#" class="fa fa-facebook wow fadeIn" data-wow-delay="0.3s"></a></li>
@@ -291,6 +291,5 @@
         <script src="js2/wow.min.js"></script>
         <script src="js2/custom.js"></script>
 
-    </body>
     </body>
 </html>
