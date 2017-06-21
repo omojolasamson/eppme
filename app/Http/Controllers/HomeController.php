@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::user()->role_id > 2){
+        if(Auth::user()->role_id < 12){
             return view('admin');
         }else {
             return view('home');

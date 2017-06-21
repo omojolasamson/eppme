@@ -18,7 +18,7 @@
                             <p>
                                 <div class="list-group" type="1">
                                     @foreach ($pings as $ping)
-                                        <a href="{{ route('fullPingView', [$ping->id]) }}" class="list-group-item">@php echo "Title: " . $ping->title;@endphp @php if(Auth::user()->id <> $ping->user_id){ echo " by "; if(Auth::user()->role_id > 2){echo $ping->first_name . " " . $ping->last_name;}} @endphp</a>
+                                        <a href="{{ route('fullPingView', [$ping->id]) }}" class="list-group-item">@php echo "Title: " . $ping->title;@endphp @php if(Auth::user()->id <> $ping->user_id){ echo " by "; if(Auth::user()->role_id < 12){echo $ping->first_name . " " . $ping->last_name;}} @endphp</a>
                                     @endforeach
                                 </div>
                             </p>

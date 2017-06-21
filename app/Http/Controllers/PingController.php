@@ -69,7 +69,7 @@ class PingController extends Controller
     }
 
     public function getFullPing($id){
-        if (Auth::user()->role_id > 2){
+        if (Auth::user()->role_id < 12){
             $ping = Ping::find($id);
             $ping->status = 'SEEN BY ADMIN';
             $ping->save();

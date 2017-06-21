@@ -20,7 +20,7 @@
                         </ul>
 
                     </p>
-                    @if(Auth::user()->role_id > 2)
+                    @if(Auth::user()->role_id < 12)
                         <a href="{{ route('userProfile', [$details[0]->user_id]) }}" class="btn btn-primary">View User Profile</a>
                         <a href="" class="btn btn-primary">Forward to @php echo $details[0]->organization @endphp</a>
 

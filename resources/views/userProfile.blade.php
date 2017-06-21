@@ -27,7 +27,7 @@
                     </ul>
 
                     </p>
-                    @if(Auth::user()->id < 2 ){
+                    @if(Auth::user()->id > 12 ){
                         <a href="" class="btn btn-primary">Edit Profile</a>
                     }
                     @endif
