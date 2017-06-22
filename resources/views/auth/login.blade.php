@@ -1,47 +1,62 @@
 @extends('layouts.app')
 
 @section('content')
-    <form class="login" role="form" method="POST" action="{{ route('login') }}">
-        {{ csrf_field() }}
-
-        <div class="imgcontainer">
-            <img src="img_avatar.png" alt="Avatar" class="avatar">
-        </div>
-
-        <div class="containerlogin">
-            <div class="{{ $errors->has('email') ? ' has-error' : '' }}">
-                <label><b>E-mail Address</b></label>
-                <div>
-                    <input class="inputlogin" id="email" type="email" placeholder="Enter Email" name="email" value="{{ old('email') }}" required autofocus>
-                    @if ($errors->has('email'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
-                    @endif
-                </div>
-            </div>
-
-            <div class="{{ $errors->has('password') ? ' has-error' : '' }}">
-                <label><b>Password</b></label>
-                <div>
-                    <input class="inputlogin" id="password" type="password" placeholder="Enter Password" name="password" required>
-                    @if ($errors->has('password'))
-                        <span class="help-block">
+    <div class="containerlogin">
+        <div class="row">
+            <div class="col-md-offset-4 col-md-4">
+                <div class="form-login">
+                    <form class="login" role="form" method="POST" action="{{ route('login') }}">
+                        {{ csrf_field() }}
+                            <h4>Welcome back!</h4>
+                                <div class="{{ $errors->has('email') ? ' has-error' : '' }}">
+                                        <label><b>E-mail Address</b></label>
+                                    <div>
+                                        <input class="form-control input-sm chat-input" id="email" type="email" placeholder="Enter Email" name="email" value="{{ old('email') }}" required autofocus>
+                                        @if ($errors->has('email'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('email') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                </br>
+                            <div class="{{ $errors->has('password') ? ' has-error' : '' }}">
+                                <label><b>Password</b></label>
+                                <div>
+                                    <input class="form-control input-sm chat-input" id="password" type="password" placeholder="Enter Password" name="password" required>
+                                    @if ($errors->has('password'))
+                                        <span class="help-block">
                             <strong>{{ $errors->first('password') }}</strong>
                         </span>
-                    @endif
+                                    @endif
+                                </div>
+                            </div>
+
+                        </br>
+                        <div class="wrapper">
+                            <span class="group-btn">
+                                <button style="width: 40%;" type="submit" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></button>
+                            </span>
+                        </div>
+                            <div style="margin-top: 5%;">
+                                <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember me
+                                <span style="float: right" class="psw">Forgot <a href="{{ route('password.request') }}">password?</a></span>
+                            </div>
+
+
+                        <div style="padding-top: 15px; font-size: 85%;">Don't have an account? <a href="{{ route('register') }}">
+
+                                Sign Up Here
+
+                            </a>
+                        </div>
+                    </form>
+
+
                 </div>
-            </div>
 
-            <button class="buttonlogin" type="submit">Login</button>
-            <div>
-                <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember me
             </div>
         </div>
+    </div>
 
-        <div class="containerlogin" style="background-color:#f1f1f1">
-            <button type="button" class="cancelbtn buttonlogin">Cancel</button>
-            <span class="psw">Forgot <a href="{{ route('password.request') }}">password?</a></span>
-        </div>
-    </form>
 @endsection
