@@ -215,7 +215,7 @@ navigation section
 }
 
 .custom-navbar .navbar-brand  {
-    /*color: #00c6d7;*/
+    color: #fff;
     font-weight: 600;
     font-size: 24px;
     text-rendering: optimizeLegibility;
@@ -266,7 +266,7 @@ navigation section
          }
     .custom-navbar.top-nav-collapse {
             /*padding: 8px;*/
-            background: #4B4B4B;
+            background: #3c8dbc;
         }
 }
 
@@ -293,7 +293,7 @@ navigation section
 }
 @media(min-width:768px){
     .custom-navbar2 {
-        background: #4B4B4B;
+        background: #3c8dbc;
         /*padding: 10px;*/
         border-bottom: 0;
        /* background: 0 0;*/
@@ -304,7 +304,7 @@ navigation section
     }
     .custom-navbar2.top-nav-collapse {
         /*padding: 8px;*/
-        background: #4B4B4B;
+        background: #3c8dbc;
     }
 }
 
@@ -776,4 +776,8 @@ h4 {
 
 .wrapper {
     text-align: center;
+}
+
+label {
+    margin-top: 2%;
 }

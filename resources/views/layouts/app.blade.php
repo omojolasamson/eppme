@@ -53,10 +53,10 @@
 
     @if(!Auth::guest())
         <div class="w3-sidebar w3-bar-block w3-dark-grey" style="width:15%">
-            <a href="#" class="w3-bar-item w3-button w3-border-bottom"><i class="fa fa-home"></i>&nbspHome</a>
-            <a href="#" class="w3-bar-item w3-button w3-border-bottom"><i class="fa fa-eye"></i>&nbspView Your Pings</a>
-            <a href="#" class="w3-bar-item w3-button w3-border-bottom"><i class="fa fa-eye"></i>&nbspView Your Profile</a>
-            <a href="#" class="w3-bar-item w3-button w3-border-bottom"><i class="fa fa-user"></i>&nbspContact Eepme</a>
+            <a href="#" class="w3-bar-item w3-button w3-border-bottom"><i class="fa fa-home"></i>&nbsp&nbspHome</a>
+            <a href="#" class="w3-bar-item w3-button w3-border-bottom"><i class="fa fa-eye"></i>&nbsp&nbspView Your Pings</a>
+            <a href="#" class="w3-bar-item w3-button w3-border-bottom"><i class="fa fa-eye"></i>&nbsp&nbspView Your Profile</a>
+            <a href="#" class="w3-bar-item w3-button w3-border-bottom"><i class="fa fa-user"></i>&nbsp&nbspContact Eepme</a>
             @if(Auth::user()->role_id < 12)
                 <a href="#" class="w3-bar-item w3-button w3-border-bottom"><i class="fa fa-eye"></i>&nbspView All Pings</a>
                 <a href="#" class="w3-bar-item w3-button w3-border-bottom"><i class="fa fa-eye"></i>&nbspView All Users</a>
@@ -143,7 +143,7 @@
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <p>Copyright © Eppme</p>
-                <hr>
+                <center><hr></center>
                 <ul class="social-icon">
                     <li><a href="#" class="fa fa-facebook wow fadeIn" data-wow-delay="0.3s"></a></li>
                     <li><a href="#" class="fa fa-twitter wow fadeIn" data-wow-delay="0.6s"></a></li>

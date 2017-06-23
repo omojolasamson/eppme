@@ -60,7 +60,7 @@
                         <span class="icon icon-bar"></span>
                         <span class="icon icon-bar"></span>
                     </button>
-                    <a href="#" class="navbar-brand">Eepme</a>
+                    <a href="#" class="navbar-brand">Eppme</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
