@@ -10,7 +10,7 @@
     </script>
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-3">
+            <div class="col-md-8 col-md-offset-1">
                 @if($key == 1)
                     <ul id="progressbar">
                         <li class="first">Send Ping</li>

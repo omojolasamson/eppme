@@ -11,18 +11,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect.
   -->
-  <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="/dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="/css2/style.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -176,7 +177,7 @@ desired effect
               <!-- The user image in the navbar-->
               <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">{{ Auth::user()->first_name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -184,20 +185,26 @@ desired effect
                 <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  {{ Auth::user()->first_name }} - Web Developer
+                  <small>Member since {{ Auth::user()->created_at }}</small>
                 </p>
               </li>
               <!-- Menu Body -->
               <li class="user-body">
                 <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
+                  <div class="text-center">
+                    <a href="{{ url('/pingView') }}"
+                    >
+                      View Your Pings
+                    </a>
                   </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
+                  <div class="text-center">
+                    <a href="{{ url('/allPings') }}"
+                    >
+                      View All Pings
+                    </a>
                   </div>
-                  <div class="col-xs-4 text-center">
+                  <div class="text-center">
                     <a href="#">Friends</a>
                   </div>
                 </div>
@@ -209,7 +216,12 @@ desired effect
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="{{ url('/logout') }}" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();" class="btn btn-default btn-flat">Sign out
+                  </a>
+                  <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                  </form>
                 </div>
               </li>
             </ul>
@@ -234,7 +246,7 @@ desired effect
           <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>{{ Auth::user()->first_name }}</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -256,19 +268,21 @@ desired effect
       <ul class="sidebar-menu">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
-        <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
+        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>View Your Pings</span></a></li>
+        <li><a href="#"><i class="fa fa-link"></i> <span>View Your Profile</span></a></li>
+        @if(Auth::user()->role_id < 12)
+          <li class="treeview">
+            <a href="#"><i class="fa fa-link"></i> <span>Admin Operations</span>
+              <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
-          </ul>
-        </li>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="#">View All Pings</a></li>
+              <li><a href="#">View All Users</a></li>
+            </ul>
+          </li>
+        @endif
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -292,7 +306,55 @@ desired effect
     <!-- Main content -->
     <section class="content">
 
-      <!-- Your Page Content Here -->
+
+        <script>
+            let x = document.getElementById("demo");
+
+            function getLocation(){
+                if(navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(savePosition);
+
+
+                } else{
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
+            }
+
+            function savePosition(position){
+
+                window.latitude = position.coords.latitude;
+                window.longitude = position.coords.longitude;
+                $('#ping').attr('href', '/form/' + longitude + '/' + latitude);
+                window.location = '/form/' + longitude + '/' + latitude;
+
+            }
+        </script>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-1">
+              <ul id="progressbar">
+                <li class="first">Send Ping</li>
+                <li>Report Emergency</li>
+                <li>Delivered</li>
+              </ul>
+
+              <!--<div class="panel panel-default" style="height: 200px; background-color: #222d32;">-->
+              <div style="margin-top: 10%">
+                <h4>Send Ping</h4>
+              </div>
+              <div>
+                <a style="text-decoration: none; color: white; margin-left: 33%;" id="ping" onclick="getLocation()"  class="btn btn-lg btn-primary col-xs-4" >Ping!</a>
+              </div>
+                <!--<div class="panel-heading text-center"></div>-->
+
+                <!--<div class="panel-body" style="padding-left: 41%;">
+
+                </div>-->
+              </div>
+            </div>
+          </div>
+        </div>
+
 
     </section>
     <!-- /.content -->

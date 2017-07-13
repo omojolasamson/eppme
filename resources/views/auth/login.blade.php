@@ -33,9 +33,9 @@
                             </div>
 
                         </br>
-                        <div class="wrapper">
+                        <div class="wrapperlogin">
                             <span class="group-btn">
-                                <button style="width: 40%;" type="submit" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></button>
+                                <button style="width: 40%;" type="submit" class="btn btn-primary btn-md"><i class="fa fa-sign-in"></i> login</button>
                             </span>
                         </div>
                             <div style="margin-top: 5%;">

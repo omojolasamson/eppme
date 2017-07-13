@@ -9,14 +9,14 @@
     </script>
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-3">
+            <div class="col-md-8 col-md-offset-1">
                 <ul id="progressbar">
                     <li class="first">Send Ping</li>
                     <li id="middle">Report Emergency</li>
                     <li>Delivered</li>
                 </ul>
                 <div class="panel panel-default">
-                    <div class="panel-heading text-center"><h1>Tell us about your emergency</h1></div>
+                    <div class="panel-heading text-center"><h4>Tell us about your emergency</h4></div>
                     <form action="/save" method="post" class="col-md-6 col-md-offset-3" style="margin-top: 5%;">
                         <div class="form-group">
                             <label for="title">Title</label>

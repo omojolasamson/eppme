@@ -25,14 +25,15 @@
     </script>
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-3">
+            <div class="col-md-2 col-md-offset-1">
                 <ul id="progressbar">
                     <li class="first">Send Ping</li>
                     <li>Report Emergency</li>
                     <li>Delivered</li>
                 </ul>
                 <div class="panel panel-default" style="height: 200px;">
-                    <div class="panel-heading text-center"><h4>Send Ping</h4></div>
+                    <h4>Send Ping</h4>
+                    <!--<div class="panel-heading text-center"></div>-->
 
                     <div class="panel-body" style="padding-left: 41%;">
                         <a style="text-decoration: none; color: white;" id="ping" onclick="getLocation()"  class="btn btn-lg btn-primary col-xs-4" >Ping!</a>

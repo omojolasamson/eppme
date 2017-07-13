@@ -211,7 +211,8 @@ navigation section
   /*color: #00c6d7;*/
   font-weight: 600;
   font-size: 24px;
-    text-rendering: optimizeLegibility;
+  margin-left: 50px;
+    /*text-rendering: optimizeLegibility;*/
 }
 
 .custom-navbar .navbar-brand  {
@@ -284,7 +285,7 @@ navigation section
     color: #ddd;
 }
 .custom-navbar2 .navbar-toggle {
-   /* border: none;*/
+   border: none;
     /*padding-top: 10px;*/
 }
 .custom-navbar2 .navbar-toggle .icon-bar {
@@ -298,9 +299,6 @@ navigation section
         border-bottom: 0;
        /* background: 0 0;*/
         font-size: 13px;
-        /*border-top: 1px inset rgba(255, 255, 255, 0.1);*/
-        /*box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);*/
-        /*border-radius: 10px;*/
     }
     .custom-navbar2.top-nav-collapse {
         /*padding: 8px;*/
@@ -669,9 +667,9 @@ select{
     color: #fff;
 }
 
-.panel {
-    background-color: #ddd;
-}
+/*.panel {
+    background-color: #3c8dbc;
+}*/
 
 #progressbar{
     margin-bottom: 10px;
@@ -740,9 +738,9 @@ a{
     text-decoration-line: none!important;
 }
 
-.panel{
+/*.panel{
     background: url('../images2/contact-bg.jpg') center center;
-}
+}*/
 
 
 .containerlogin {
@@ -774,7 +772,7 @@ h4 {
     border-radius: 4px;
 }
 
-.wrapper {
+.wrapperlogin {
     text-align: center;
 }
 
