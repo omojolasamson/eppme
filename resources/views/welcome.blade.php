@@ -104,7 +104,7 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.6s">
                         <i class="icon-cloud medium-icon"></i>
-                        <h3>LOREM IPSUM</h3>
+                        <h3>Samson IPSUM</h3>
                         <hr>
                         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteu sunt in culpa qui officia.</p>
                     </div>
